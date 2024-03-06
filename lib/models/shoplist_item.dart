@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:ffi';
+
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ShoplistItem {
   final String itemName;
@@ -7,12 +8,23 @@ class ShoplistItem {
   final String shopName;
   final String category;
   final String event;
+  final bool check;
 
-  const ShoplistItem({
-    required this.itemName,
-    this.itemCount = '',
-    this.shopName = '',
-    this.category = '',
-    this.event = '',
-  });
+  const ShoplistItem(
+      {required this.itemName,
+      this.itemCount = '',
+      this.shopName = '',
+      this.category = '',
+      this.event = '',
+      this.check = false});
+
+  ShoplistItem copy(ShoplistItem shopList) {
+    return ShoplistItem(
+      itemName: shopList.itemName,
+      itemCount: shopList.itemCount,
+      shopName: shopList.shopName,
+      category: shopList.category,
+      event: shopList.event,
+    );
+  }
 }
