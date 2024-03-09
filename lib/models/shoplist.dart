@@ -1,7 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopinglist/models/shoplist_item.dart';
-import 'package:uuid/uuid.dart';
 
 class Shoplist {
   final String id;
