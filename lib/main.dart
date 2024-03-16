@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopinglist/routing/routing.dart';
 
 void main() {
@@ -9,21 +10,16 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: goRouter,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ProviderScope(
+      child: MaterialApp.router(
+        routerConfig: goRouter,
+        title: 'ShopList y|<app',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          scaffoldBackgroundColor: const Color.fromARGB(255, 45, 43, 43),
+          useMaterial3: true,
+        ),
       ),
     );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }

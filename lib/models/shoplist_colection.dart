@@ -9,7 +9,8 @@ class ShoplistColection extends Notifier<List<Shoplist>> {
   @override
   List<Shoplist> build() {
     List<Shoplist> list = [
-      Shoplist(id: '1', listName: 'zakupy', localList: true)
+      Shoplist(id: '1', listName: 'zakupy', localList: true),
+      Shoplist(id: '2', listName: 'inne zakupy', localList: true)
     ];
     list[0].itemList.add(const ShoplistItem(
         itemName: 'bułki',
