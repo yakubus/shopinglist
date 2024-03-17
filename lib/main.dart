@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return ProviderScope(
       child: MaterialApp.router(
         routerConfig: goRouter,
-        title: 'ShopList y|<app',
+        title: 'ShopList y|<appd',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           scaffoldBackgroundColor: const Color.fromARGB(255, 45, 43, 43),

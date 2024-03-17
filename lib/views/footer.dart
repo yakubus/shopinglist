@@ -5,14 +5,17 @@ class FooterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
-      'y|<app',
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        color: Color.fromARGB(137, 138, 84, 3),
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-        fontFamily: 'Helvetica Neue',
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: const Text(
+        'y|<app',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Color.fromARGB(137, 138, 84, 3),
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Helvetica Neue',
+        ),
       ),
     );
   }

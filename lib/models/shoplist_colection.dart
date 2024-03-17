@@ -20,6 +20,10 @@ class ShoplistColection extends Notifier<List<Shoplist>> {
     return list;
   }
 
+  void removeList(Shoplist target) {
+    state = state.where((list) => list.id != target.id).toList();
+  }
+
   void newList(String listName) {
     state = [
       ...state,

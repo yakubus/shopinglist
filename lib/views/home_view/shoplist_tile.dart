@@ -2,14 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:shopinglist/models/shoplist.dart';
+import 'package:shopinglist/views/home_view/home_view.dart';
 
 class ShoplistTile extends HookConsumerWidget {
-  final String listName;
+  final Shoplist shoplist; // Dodaj pole shoplist
 
   const ShoplistTile({
-    super.key,
-    required this.listName,
-  });
+    Key? key,
+    required this.shoplist, // Dodaj parametr shoplist
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -28,7 +30,7 @@ class ShoplistTile extends HookConsumerWidget {
                 ListTile(
                   leading: const Icon(color: Colors.white54, Icons.list_alt),
                   title: Text(
-                    listName,
+                    shoplist.listName,
                     style: const TextStyle(
                       color: Colors.white54,
                       fontSize: 16,
@@ -36,6 +38,18 @@ class ShoplistTile extends HookConsumerWidget {
                       fontFamily: 'Helvetica Neue',
                     ),
                   ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    TextButton(
+                      child: const Text('USUŃ'),
+                      onPressed: () => ref
+                          .read(shopListProvider.notifier)
+                          .removeList(shoplist),
+                    ),
+                    const SizedBox(width: 8),
+                  ],
                 ),
               ],
             ),
