@@ -20,12 +20,7 @@ class Shoplist {
     itemList.add(item);
   }
 
-  removeItem(String itemName) {
-    for (int i = 0; i < itemList.length; i++) {
-      if (itemList[i].itemName == itemName) {
-        // ignore: list_remove_unrelated_type
-        itemList.remove(i);
-      }
-    }
+  void removeItem(String itemName) {
+    itemList.removeWhere((item) => item.itemName == itemName);
   }
 }

@@ -5,9 +5,9 @@ class FooterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
+    return const Align(
       alignment: Alignment.bottomCenter,
-      child: const Text(
+      child: Text(
         'y|<app',
         textAlign: TextAlign.center,
         style: TextStyle(

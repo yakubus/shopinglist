@@ -17,6 +17,11 @@ class ShoplistColection extends Notifier<List<Shoplist>> {
         category: 'pieczywo',
         itemCount: '3szt',
         shopName: 'Lidl'));
+    list[0].itemList.add(const ShoplistItem(
+        itemName: 'karmelki',
+        category: 'pieczywo',
+        itemCount: '3szt',
+        shopName: 'Lidl'));
     return list;
   }
 
@@ -34,16 +39,13 @@ class ShoplistColection extends Notifier<List<Shoplist>> {
     ];
   }
 
-  void getList(String id) {
-    Shoplist getingList = mockShopList(id);
-
-    state = [
-      ...state,
-      Shoplist(
-        id: getingList.id,
-        listName: getingList.listName,
-      ),
-    ];
+  List<ShoplistItem> getList(String id) {
+    for (final shoplist in state) {
+      if (shoplist.id == id) {
+        return shoplist.itemList;
+      }
+    }
+    return [];
   }
 
   Shoplist mockShopList(String id) {
@@ -80,11 +82,9 @@ class ShoplistColection extends Notifier<List<Shoplist>> {
     ];
   }
 
-  void removeItem({required String id, required itemName}) {
-    state = [
-      for (final shoplist in state)
-        if (shoplist.id == id) shoplist.removeItem(itemName)
-    ];
+  void removeItemFromList(String id, String listName) {
+    final targetList = state.firstWhere((list) => list.id == id);
+    targetList.itemList.removeWhere((item) => item.itemName == listName);
   }
 
   void edit({required String id, required String description}) {

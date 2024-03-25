@@ -9,6 +9,8 @@ import 'package:shopinglist/views/footer.dart';
 import 'package:shopinglist/views/home_view/shoplist_tile.dart';
 import 'package:shopinglist/views/title.dart';
 
+import '../../style/style.dart';
+
 final shopListProvider =
     NotifierProvider<ShoplistColection, List<Shoplist>>(ShoplistColection.new);
 
@@ -26,7 +28,10 @@ class HomeView extends HookConsumerWidget {
             const SizedBox(height: 80),
             const TitleApp(),
             if (lists.isEmpty)
-              const Text('Nie dodałeś żadnej listy')
+              Text(
+                'Nie dodałeś żadnej listy',
+                style: standardTextStyle(),
+              )
             else
               Expanded(
                 child: ListView.builder(
@@ -43,7 +48,12 @@ class HomeView extends HookConsumerWidget {
                 ),
               ),
             ElevatedButton(
-              child: const Text('dodaj listę'),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 108, 104, 104)),
+              child: Text(
+                'dodaj listę',
+                style: standardTextStyle(),
+              ),
               onPressed: () => context.go('/newList'),
             ),
             const FooterApp(),

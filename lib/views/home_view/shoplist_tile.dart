@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopinglist/models/shoplist.dart';
 import 'package:shopinglist/views/home_view/home_view.dart';
@@ -28,6 +29,7 @@ class ShoplistTile extends HookConsumerWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 ListTile(
+                  onTap: () => context.go('/shoplist', extra: shoplist),
                   leading: const Icon(color: Colors.white54, Icons.list_alt),
                   title: Text(
                     shoplist.listName,
