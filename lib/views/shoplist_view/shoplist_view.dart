@@ -3,13 +3,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shopinglist/models/shoplist.dart';
 import 'package:shopinglist/models/shoplist_item.dart';
 import 'package:shopinglist/views/footer.dart';
+import 'package:shopinglist/views/shoplist_view/new_item.dart';
 import 'package:shopinglist/views/shoplist_view/shoplist_item.dart';
 
 import '../../style/style.dart';
 
 class ShopListView extends HookConsumerWidget {
   final Shoplist list;
-
   const ShopListView({Key? key, required this.list}) : super(key: key);
 
   @override
@@ -49,6 +49,7 @@ class ShopListView extends HookConsumerWidget {
                   },
                 ),
               ),
+            NewItem(id: list.id),
             const FooterApp(),
           ],
         ),

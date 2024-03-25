@@ -25,3 +25,12 @@ TextStyle headerTextStyle() {
     fontFamily: 'Helvetica Neue',
   );
 }
+
+TextStyle hintTextStyle() {
+  return const TextStyle(
+    color: Colors.white,
+    fontSize: 12,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Helvetica Neue',
+  );
+}

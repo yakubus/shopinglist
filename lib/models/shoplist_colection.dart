@@ -75,16 +75,33 @@ class ShoplistColection extends Notifier<List<Shoplist>> {
     print('List is pulled');
   }
 
-  void addItem({required String id, required ShoplistItem item}) {
+  void addItem(
+      {required String id, required String itemName, String? counter}) {
+    String itemCount = (counter == null) ? '' : counter;
+    ShoplistItem item = ShoplistItem(itemName: itemName, itemCount: itemCount);
+    final targetList = state.firstWhere((list) => list.id == id);
+    targetList.addItem(item);
+
     state = [
       for (final shoplist in state)
-        if (shoplist.id == id) shoplist.addItem(item)
+        if (shoplist.id == id) targetList else shoplist
     ];
   }
 
   void removeItemFromList(String id, String listName) {
     final targetList = state.firstWhere((list) => list.id == id);
     targetList.itemList.removeWhere((item) => item.itemName == listName);
+    state = [
+      for (final shoplist in state)
+        if (shoplist.id == id)
+          Shoplist(
+            id: shoplist.id,
+            listName: shoplist.listName,
+            privet: shoplist.privet,
+          )
+        else
+          shoplist,
+    ];
   }
 
   void edit({required String id, required String description}) {
